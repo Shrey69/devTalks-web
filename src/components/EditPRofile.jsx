@@ -38,7 +38,7 @@ const EditProfile = ({ user }) => {
   return (
    <> <div className="flex justify-center space-x-8 my-10">
       <div className="flex justify-center">
-        <div className="card bg-base-300 w-96 shadow-xl">
+        <div className="card bg-base-300 w-80  shadow-xl">
           <div className="card-body">
             <h2 className="card-title justify-center font-bold">EDIT PROFILE</h2>
             <div>
