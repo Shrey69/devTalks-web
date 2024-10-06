@@ -7,6 +7,7 @@ import UserCard from "./UserCard";
 
 const EditProfile = ({ user }) => {
   const dispatch = useDispatch();
+  const [isProfile, setIsProfile] = useState(true);
   const [firstName, setFirstName] = useState(user?.firstName || "");
   const [lastName, setLastName] = useState(user?.lastName || "");
   const [age, setAge] = useState(user?.age || "");
@@ -25,7 +26,7 @@ const EditProfile = ({ user }) => {
           withCredentials: true,
         }
       );
-      console.log("API response:", res?.data);
+      
       dispatch(addUser(res?.data?.data));
       setShowToast(true);
       setTimeout(() => setShowToast(false), 3000);
@@ -36,8 +37,35 @@ const EditProfile = ({ user }) => {
   };
 
   return (
-   <> <div className="flex justify-center space-x-8 my-10">
-      <div className="flex justify-center">
+   <> <div className="flex flex-col md:flex-row justify-center space-x-8 my-10">
+
+{/* <div className="flex justify-center">
+      <UserCard 
+        user={{
+          firstName,
+          lastName,
+          gender,
+          age,
+          about,
+          photoURL, 
+        }}
+      /></div> */}
+      <div className="card bg-base-300 mx-12 md:mx-0 w-80 h-2/4 my-4 shadow-xl cursor-pointer">
+        <figure>
+          <img
+            src={photoURL}
+            alt="Profile"
+          />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title font-bold">{firstName + " " + lastName}</h2>
+          {age && gender && <p className="font-medium">{age + ", " + gender}</p>}
+          <p className="font-medium">{about}</p>
+        
+        </div>
+      </div>
+
+      <div className="flex justify-center my-4 pr-8 md:pr-0">
         <div className="card bg-base-300 w-80  shadow-xl">
           <div className="card-body">
             <h2 className="card-title justify-center font-bold">EDIT PROFILE</h2>
@@ -127,16 +155,7 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
       </div>
-      <UserCard
-        user={{
-          firstName,
-          lastName,
-          gender,
-          age,
-          about,
-          photoURL, // Ensure consistency between photoURL in EditProfile and UserCard
-        }}
-      />
+
     </div>
   {showToast && ( <div className="toast toast-top toast-end">
   <div className="alert alert-success">

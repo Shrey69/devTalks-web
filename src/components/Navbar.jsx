@@ -22,10 +22,10 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-300">
     <div className="flex-1">
-      <Link to="/" className="btn btn-ghost text-xl">👩🏻‍💻 DevTalks</Link>
+      <Link to="/" className="btn btn-ghost text-xl brightness-125">👩🏻‍💻 DevTalks</Link>
     </div>
    {user && <div className="flex-none gap-2">
-    <div className="form-control font-semibold">Welcome, {user.firstName}👋🏻</div>
+    <div className=" hidden md:block form-control font-semibold">Welcome, {user.firstName}👋🏻</div>
       <div className="dropdown dropdown-end mx-5 flex">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
           <div className="w-10 rounded-full">

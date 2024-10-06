@@ -49,18 +49,19 @@ useEffect(()=> {
         {requests.map((request) =>{
             const {_id, firstName, lastName, gender, about, photoURL, age} = request.fromUserID;
             return (
-                <div key={_id} className="flex justify-between items-center p-4 m-4 bg-base-300 rounded-2xl w-1/2 mx-auto ">
+                <div key={_id} className="flex justify-between items-center p-4 m-4 bg-base-300 rounded-2xl w-[96%] md:w-3/5 mx-auto ">
                    <div>  <img className="w-20 h-20 rounded-full" src={photoURL} alt="pfp" /></div>
                    <div className="text-left mx-4">
                     <h2 className="text-xl font-bold">{firstName + " " + lastName}  </h2>
                     {age && gender && <p>{age+ ", "+ gender}</p>}
                     <p>{about}</p>
                     </div>
-                    <div className='space-x-2 '>
-                    <button className="btn btn-active btn-primary" 
-                    onClick={() => reviewRequests("rejected", request._id)}>Reject</button>
-                    <button className="btn btn-active btn-secondary"
+                    <div className='flex flex-col space-y-2  '>
+                    <button className="btn btn-active btn-primary font-bold"
                     onClick={() => reviewRequests("accepted", request._id)}>Accept</button>
+                    <button className="btn btn-active btn-secondary font-bold" 
+                    onClick={() => reviewRequests("rejected", request._id)}>Reject</button>
+                    
                     </div>
                 </div>
             )
