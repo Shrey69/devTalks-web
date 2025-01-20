@@ -1,1 +1,1 @@
-export const BASE_URL = "https://devtalks.onrender.com"
+export const BASE_URL = "/api"  //"https://devtalks.onrender.com"
